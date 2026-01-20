@@ -8,10 +8,11 @@ __pycache__/
 .env
 *.md
 
+# Build Outcomes (Source Integrity Only)
+dist/
+build/
+
 # OpenSeal Artifacts (Self-exclusion)
 openseal.json
 .opensealignore
 .openseal_mutable
-
-# Whitelist build artifacts (Overrides .gitignore)
-!dist

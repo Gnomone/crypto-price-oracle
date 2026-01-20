@@ -58,6 +58,20 @@ app.get('/health', (req, res) => {
     res.json({ status: 'active', service: 'Crypto Price Oracle', version: '1.0.0' });
 });
 
+/**
+ * Root Route for Connectivity Check
+ */
+app.get('/', (req, res) => {
+    res.json({
+        service: 'Crypto Price Oracle',
+        status: 'online',
+        endpoints: [
+            '/api/v1/price/:symbol',
+            '/health'
+        ]
+    });
+});
+
 app.listen(port, () => {
     console.log(`🚀 Crypto Price Oracle Demo listening at http://localhost:${port}`);
     console.log(`Available symbols: BTC, ETH, CRO, etc.`);
