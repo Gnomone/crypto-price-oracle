@@ -12,3 +12,6 @@ __pycache__/
 openseal.json
 .opensealignore
 .openseal_mutable
+
+# Whitelist build artifacts (Overrides .gitignore)
+!dist
