@@ -14,25 +14,38 @@ Production-ready cryptocurrency price API designed for **OpenSeal wrapping** and
 
 ## Quick Start
 
-### Option 1: Docker (Recommended)
+### Scenario 1: Local Development (Build from Source)
 
 ```bash
-# Pull and run
-docker pull ghcr.io/gnomone/crypto-price-oracle:latest
-docker run -p 3000:3000 ghcr.io/gnomone/crypto-price-oracle:latest
-
-# Test
-curl http://localhost:3000/api/v1/price/BTC
-```
-
-### Option 2: From Source
-
-```bash
+# Clone repository
 git clone https://github.com/Gnomone/crypto-price-oracle.git
 cd crypto-price-oracle
-npm install
-npm run build
-npm start
+
+# Build Docker image
+docker build -t crypto-price-oracle:v1 .
+
+# Seal with OpenSeal
+openseal build --image crypto-price-oracle:v1
+
+# Run with OpenSeal proxy
+openseal run --image crypto-price-oracle:v1 --port 8080
+
+# Test
+curl -X POST http://localhost:8080/api/v1/price \
+  -H "Content-Type: application/json" \
+  -H "X-OpenSeal-Wax: test123" \
+  -d '{"symbol":"BTC"}'
+```
+
+### Scenario 2: Deployment (Use Pre-built Image)
+
+> ⚠️ **Note**: Docker image not yet published to ghcr.io. Use Scenario 1 for now.
+
+```bash
+# TODO: After image is published
+docker pull ghcr.io/gnomone/crypto-price-oracle:latest
+openseal build --image ghcr.io/gnomone/crypto-price-oracle:latest
+openseal run --image ghcr.io/gnomone/crypto-price-oracle:latest --port 8080
 ```
 
 ---
