@@ -1,12 +1,12 @@
 {
   "identity": {
-    "root_hash": "sha256:ef554329f57ad06968558c06cbd2e75faa5b1fce4ee4b91e1e7f8b7e999d4c30",
+    "root_hash": "sha256:ff9efc114be283bd6204f4157d0ed7200ad060461e43e54558dca967482dbf4b",
     "seal_version": "2.0"
   },
   "image": {
-    "created_at": "2026-01-21T20:19:20.472902617+00:00",
-    "digest": "sha256:ef554329f57ad06968558c06cbd2e75faa5b1fce4ee4b91e1e7f8b7e999d4c30",
-    "reference": "crypto-price-oracle:v1"
+    "created_at": "2026-01-21T20:40:06.457366099+00:00",
+    "digest": "sha256:ff9efc114be283bd6204f4157d0ed7200ad060461e43e54558dca967482dbf4b",
+    "reference": "crypto-price-oracle:latest"
   },
   "version": "1.0.0"
 }
