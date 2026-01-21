@@ -35,8 +35,32 @@ app.get('/api/v1/price/:symbol', async (req, res) => {
             timestamp: new Date().toISOString(),
             provider: 'HighStation Demo Oracle'
         };
-        // Note: OpenSeal wrapping can be added here by the user
-        // Example format: { result: { ... }, openseal: { ... } }
+        res.json(result);
+    }
+    catch (error) {
+        res.status(404).json({ error: error.message });
+    }
+});
+/**
+ * POST /api/v1/price
+ * Returns the current spot price for a given symbol (JSON body).
+ * Body: { "symbol": "BTC" }
+ */
+app.post('/api/v1/price', async (req, res) => {
+    const { symbol } = req.body;
+    if (!symbol) {
+        return res.status(400).json({ error: 'Missing required field: symbol' });
+    }
+    console.log(`[Oracle] Price request (POST): ${symbol}`);
+    try {
+        const price = await fetchPrice(symbol);
+        const result = {
+            symbol: symbol.toUpperCase(),
+            price: price,
+            currency: 'USD',
+            timestamp: new Date().toISOString(),
+            provider: 'HighStation Demo Oracle'
+        };
         res.json(result);
     }
     catch (error) {
@@ -48,6 +72,20 @@ app.get('/api/v1/price/:symbol', async (req, res) => {
  */
 app.get('/health', (req, res) => {
     res.json({ status: 'active', service: 'Crypto Price Oracle', version: '1.0.0' });
+});
+/**
+ * Root Route for Connectivity Check
+ */
+app.get('/', (req, res) => {
+    res.json({
+        service: 'Crypto Price Oracle',
+        status: 'online',
+        endpoints: [
+            'GET /api/v1/price/:symbol',
+            'POST /api/v1/price (body: {"symbol": "BTC"})',
+            'GET /health'
+        ]
+    });
 });
 app.listen(port, () => {
     console.log(`🚀 Crypto Price Oracle Demo listening at http://localhost:${port}`);
