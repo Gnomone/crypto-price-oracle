@@ -1,44 +1,12 @@
 {
-  "exec": "npm run dev",
   "identity": {
-    "file_count": 1627,
-    "mutable_files": [],
-    "root_hash": [
-      79,
-      156,
-      65,
-      158,
-      113,
-      228,
-      11,
-      46,
-      251,
-      229,
-      96,
-      57,
-      59,
-      61,
-      254,
-      252,
-      220,
-      69,
-      142,
-      183,
-      17,
-      21,
-      220,
-      212,
-      54,
-      55,
-      54,
-      173,
-      135,
-      99,
-      99,
-      17
-    ]
+    "root_hash": "sha256:ef554329f57ad06968558c06cbd2e75faa5b1fce4ee4b91e1e7f8b7e999d4c30",
+    "seal_version": "2.0"
   },
-  "sealed": true,
-  "timestamp": "2026-01-21T11:39:29.654708035+00:00",
+  "image": {
+    "created_at": "2026-01-21T20:19:20.472902617+00:00",
+    "digest": "sha256:ef554329f57ad06968558c06cbd2e75faa5b1fce4ee4b91e1e7f8b7e999d4c30",
+    "reference": "crypto-price-oracle:v1"
+  },
   "version": "1.0.0"
 }

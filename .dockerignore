@@ -1,0 +1,8 @@
+node_modules
+npm-debug.log
+dist_opensealed
+dist
+.git
+.openseal_mutable
+.opensealignore
+openseal.json

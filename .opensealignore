@@ -16,3 +16,6 @@ build/
 openseal.json
 .opensealignore
 .openseal_mutable
+
+# OpenSeal output (auto-added)
+dist_opensealed/
